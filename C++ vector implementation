@@ -524,13 +524,13 @@ private:
 		_Capacity = Capacity;
 	}
 
-	constexpr void _Destruct_All() noexcept
+	constexpr void _Destruct_All() const noexcept
 	{
 		for (size_type i(0); i < _Size; ++i)
 			_Data[i].~Ty();
 	}
 
-	constexpr void _Destruct_Range(size_type _From, const size_type _To) noexcept
+	constexpr void _Destruct_Range(size_type _From, const size_type _To) const noexcept
 	{
 		for (; _From < _To; ++_From)
 			_Data[_From].~Ty();
@@ -601,6 +601,14 @@ private:
 	{
 		_Init(_Vec._Data, _Vec._Size, _Vec._Capacity);
 		_Vec._Init();
+	}
+
+	constexpr void _Make_Empty() noexcept
+	{
+		if (_Data) {
+			_Destruct_All();
+			_Size = 0;
+		}
 	}
 
 	constexpr void _Clear() noexcept
@@ -705,7 +713,7 @@ public:
 			_Construct(_Vec);
 		}
 		else {
-			_Clear();
+			_Make_Empty();
 		}
 		return *this;
 	}
@@ -718,7 +726,7 @@ public:
 			_Steal_Data(_Vec);
 		}
 		else {
-			_Clear();
+			_Make_Empty();
 		}
 		return *this;
 	}
@@ -732,7 +740,7 @@ public:
 			_Construct_Range(_il.begin(), _il.end());
 		}
 		else {
-			_Clear();
+			_Make_Empty();
 		}
 		return *this;
 	}
