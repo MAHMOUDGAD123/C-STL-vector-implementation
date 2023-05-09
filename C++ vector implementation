@@ -7,24 +7,12 @@
 #define MG_END }
 
 
-// take a look here (the cherno)
-// https://www.youtube.com/watch?v=ryRf4Jh_YC0&list=PLlrATfBNZ98dudnM48yfGUldqGD0S4FFb&index=92&ab_channel=TheCherno
-// https://en.cppreference.com/w/cpp/language/parameter_pack
-// search for -> { variadic templates in c++ }
-// search for -> { placement new operator in c++ }
-
-// difference between (new - delete) key words & (new - delete) operator function
-// https://stackoverflow.com/questions/10513425/what-are-operator-new-and-operator-delete
-
-// iterator (cherno)
-// https://www.youtube.com/watch?v=F9eDv-YIOQ0&list=PLlrATfBNZ98dudnM48yfGUldqGD0S4FFb&index=95
-
 
 MG_BEGIN
 
 
 //============================================================================================================
-//================================================== Vector ==================================================
+//================================================= Iterators ================================================
 //============================================================================================================
 
 
